@@ -1,5 +1,21 @@
-<h1>New Note</h1>
+<div class="col-md-10">
+    <div class="tab-pane active form-horizontal"">
+        <h3 class="block bg-primary">Add new note</h3>
+        <div> 
+        <%= render 'form' %>
+        </div>
+    </div>
+    <div class="form-group">
+    <div class="pull-left">
+        <%= link_to 'Back', notes_path ,class: "btn btn-default"%>
+        <!-- <button type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button> -->
+    </div>
+</div>
+</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', notes_path %>
+
+
+
+
+

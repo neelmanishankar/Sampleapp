@@ -1,18 +1,38 @@
 <p id="notice"><%= notice %></p>
-<h1>Show Notes</h1>
-<div>
-	Name : <%= @note.name%> </div></br>
-	Description : <%= @note.description%> </br>
-	<%= link_to 'Back', notes_path %>
-</div>
-</br>
-<h1>Listing Versions</h1>
+<h3 class="block bg-primary">Show Notes</h3>
+
+	<div class="form-group col-md-9">
+		<label class="control-label col-md-3">Name : </label>
+	 	<div class="col-md-4"><%= @note.name%> </div>
+	</div>
+	<div class="form-group col-md-9">
+		<label class="control-label col-md-3">Description : </label>
+		<div class="col-md-4"> <%= @note.description%></div>
+	</div>
+	</br></br>
+	<div class="form-group col-md-12">
+	<%= link_to 'Back', notes_path  %>
+	<%= link_to 'Edit', edit_note_path(@note) ,class: "btn btn-default"%>
+	</div>
+
+
+</br></br></br></br>
+
 <% if !@note.versions.empty? %>
+
+<h3 class="block bg-primary">Versions</h3>
+
+
 <% @note.versions.each_with_index do |version,index| %>
-<div>
-	Version <%=version.number - 1%>  :: changes made in following fields <%=version.modifications%> ||
-	 <b><%= link_to 'revert' , revert_note_path(@note, :version_id=>version.number - 1), method: :post %></b>
+<div class="form-group col-md-9">
+<label class="col-md-6">
+	Version <%=version.number - 1%>  created at <%= version.created_at.strftime("%Y-%m-%d")%>
+</label>
+<div class="col-md-3">
+	 <%= link_to 'Revert to this' , revert_note_path(@note, :version_id=>version.number - 1), method: :post %>
+</div>
 </div>
 <%end%>
 <%end%>
+
 

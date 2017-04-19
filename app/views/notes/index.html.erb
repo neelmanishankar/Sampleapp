@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Notes</h1>
+<br/>
+<div class="row">
+    <div class="col-md-12">
+    <div id="notice"><%= notice %></div>
+        <%= link_to 'New Note', new_note_path ,class: "btn btn-primary"%>
+        <h3 class="block bg-primary">Notes</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th colspan=3></th>
+            </tr>
+            
+            <% @notes.each do |note| %>
+            <tr >
+                <td><%= note.name%></td>
+                <td><%= note.description%></td>
+                <td><%= link_to 'Show', note %></td>
+                <td><%= link_to 'Edit', edit_note_path(note) %></td>
+                <td><%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                
+            </tr>
+            <%end%>
+        </table>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Description</th>
-    <th colspan=3>Action</th>
-  </thead>
 
-  <tbody>
-
-    <% @notes.each do |note| %>
-
-      <tr>
-        <td><%= note.name%></td>
-        <td><%= note.description%></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Note', new_note_path %>
