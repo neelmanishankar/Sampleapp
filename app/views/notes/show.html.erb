@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<h1>Show Notes</h1>
+<div>
+	Name : <%= @note.name%> </div></br>
+	Description : <%= @note.description%> </br>
+	<%= link_to 'Back', notes_path %>
+</div>
+</br>
+<h1>Listing Versions</h1>
+<% if !@note.versions.empty? %>
+<% @note.versions.each_with_index do |version,index| %>
+<div>
+	Version <%=version.number - 1%>  :: changes made in following fields <%=version.modifications%> ||
+	 <b><%= link_to 'revert' , revert_note_path(@note, :version_id=>version.number - 1), method: :post %></b>
+</div>
+<%end%>
+<%end%>
+
