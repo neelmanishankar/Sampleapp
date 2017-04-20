@@ -62,8 +62,8 @@ class NotesController < ApplicationController
   end
 
   def revert
-    @note = Note.find(params[:id])
-    logger.debug """ #{params} "
+    # @note = Note.find(params[:id])
+    # logger.debug """ #{params} "
     if @note.revert_to!(params[:version_id].to_i)
      redirect_to notes_url, notice: 'Note was successfully reverted.'
     else
