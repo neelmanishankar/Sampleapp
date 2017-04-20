@@ -46,4 +46,10 @@ class NotesControllerTest < ActionController::TestCase
 
     assert_redirected_to notes_path
   end
+
+  test "should revert note " do
+    post :revert , id: @note , version_id: @note.version
+    assert_redirected_to notes_path
+  end
+
 end
