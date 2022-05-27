@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/altagem/vestal_versions.git
+  remote: https://github.com/altagem/vestal_versions.git
   revision: f4552416a77f5658a5ec023d530ba40c7ac15d87
   branch: rails-4_1
   specs:
@@ -88,7 +88,7 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
-    rack (1.6.11)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
